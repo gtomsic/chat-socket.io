@@ -1,0 +1,16 @@
+{
+  "name": "chat-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "socket.io.js",
+  "scripts": {
+    "start": "node socket.io.js",
+    "dev": "nodemon socket.io.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.5.1"
+  }
+}
