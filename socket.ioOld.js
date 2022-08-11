@@ -21,9 +21,7 @@ io.on("connection", (socket, req) => {
   socket.on("messageToServer", (msg) => {
     console.log(msg);
   });
+  socket.on("newMessageToServer", (msg) => {
+    io.emit("messageToClients", { text: msg.text });
+  });
 });
-
-io.of('/admin').on('connection', (socket)=> {
-  console.log('Someone connected to the admin namespace!')
-  socket.emit('welcome', "Welcome to the admin channel!")
-})
