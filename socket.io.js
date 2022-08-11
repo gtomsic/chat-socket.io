@@ -15,8 +15,13 @@ const server = app.listen(8000);
 const io = socketio(server);
 
 io.on("connection", (socket, req) => {
-  socket.emit("welcome", "Welcome to the socket.io server!!!");
-  socket.on("message", (msg) => {
+  socket.emit("messageFromServer", {
+    data: "Welcome to the socket.io server!!!",
+  });
+  socket.on("messageToServer", (msg) => {
     console.log(msg);
+  });
+  socket.on("newMessageToServer", (msg) => {
+    io.emit("messageToClients", { text: msg.text });
   });
 });
